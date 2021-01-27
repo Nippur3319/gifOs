@@ -26,7 +26,7 @@
 					<a href="index.html"><img src="./img/logo-mobile.svg" alt="logo"></a>
 				</div>
 				<div class="menu_hamburguesa" id="menu_hamburguesa">
-					<img src="./img/burger.svg" alt="menu">
+					<img class='img_hamburguesa' id= 'img_hamburguesa' src="./img/burger.svg" alt="menu">
 				</div>
 				
 			</div>
@@ -105,8 +105,8 @@
 				
 				<p class="trending_gifos_txt">Trending GIFOS</p>
 				<p class="trending_gifos_p_txt">Mira los últimos GIFOS de nuestra comunidad.</p>
-				
-				<div class="contenedor_gifos">
+				<!-- este es el container que va a ser rellenado dinámicamente con la función addToDom de trending.js-->
+				<div class="contenedor_gifos" id="contenedor_gifos">
 					
 					<div class="boton_slider_izquierda" id="boton_slider_izquierda"></div>
 					<div class="resultado_trending"></div>
