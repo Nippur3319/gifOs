@@ -1,0 +1,219 @@
+/* GENERAL */
+
+@import "variables.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+    margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  background: #fff;
+}
+
+body {
+    margin: auto;
+}
+
+/* CLASE PARA OCULTAR OBJETOS */
+.invisible {
+    display: none;
+}
+
+/* MOBILE */
+
+.header {
+  width: 100%;
+  background: var(--cabecera-background-mobile);
+}
+
+.cabecera {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 95px;
+  
+  padding-left: 22px;
+  padding-right: 26px;
+
+}
+
+.logo {
+    height: 50px;
+    width: 60px;
+    
+}
+
+.menu_desplegado {
+  z-index: 100;
+  overflow: hidden;
+  position:fixed;
+  width: 375px;
+  height: 100%;
+  background-color: var(--color-texto-diurno);
+  opacity: 90%;
+  
+  
+}
+
+.menu_desplegado li {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.menu_desplegado li a {
+    text-decoration: none;
+    color: var(--color-texto-menu-mobile);
+}
+
+.contenido {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-fondo-diurno);
+}
+
+.texto-principal {
+  text-align: center;
+  color: var(--color-texto-diurno);
+}
+
+.ilustracion {
+  max-width: 273px;
+  max-height: 130px;
+}
+
+.contenedor_busqueda {
+  border: var(--border-busqueda-diurno);
+  border-radius: 40px;
+  
+  padding-left: 15px;
+  padding-right: 20px;
+  height: 50px;
+  width: 294px;
+   
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: stretch;
+  align-items: center;
+}
+
+.input_busqueda{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    width: 215px;
+    height: 22px;
+    
+}
+
+.boton_lupa {
+    height: 20px;
+    width: 20px;
+    background: url(../img/icon-search.svg) no-repeat;
+}
+
+.contenedor_sugerencias {
+    display: none;
+}
+
+.trending,
+.trending_gifos {
+  padding-top: 46px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: var(--color-texto-diurno);
+  margin: auto;
+  width: 100%;
+}
+
+.trending_gifos {
+  height: 476px;
+  background: #f3f5f8;
+}
+
+.trending_gifos_p_txt {
+  font-family: "Roboto", sans-serif;
+  font-weight: lighter;
+  color: var(--color-texto-secundario-diurno);
+  font-size: 16px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.compartir_txt, .copyright{
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+}
+
+.redes_sociales{
+    display: flex;
+    justify-content: center;
+}
+
+.icono_facebook {
+    background: url("../img/icon_facebook.svg") no-repeat;
+    display: block;
+    width: 13px;
+    height: 20px;
+    margin: 0px 5px 0px 5px;
+}
+
+.icono_facebook:hover {
+    background: url("../img/icon_facebook_hover.svg") no-repeat;
+    
+}
+
+.icono_twitter {
+    background: url("../img/icon-twitter.svg") no-repeat;
+    display: block;
+    width: 18px;
+    height: 20px;
+    margin: 0px 5px 0px 5px;
+}
+
+.icono_twitter:hover {
+    background: url("../img/icon-twitter-hover.svg") no-repeat;
+    
+}
+
+.icono_instagram {
+    background: url("../img/icon_instagram.svg") no-repeat;
+    display: block;
+    width: 18px;
+    height: 20px;
+    margin: 0px 5px 0px 5px;
+}
+
+.icono_instagram:hover {
+    background: url("../img/icon_instagram-hover.svg") no-repeat;
+    
+}
+
+
+
+.copyright {
+    font-size 14px;
+}
+
+
+/* TABLET */
+
+/* DESKTOP */
+
+
+/* MODO NOCHE: VER https://www.w3schools.com/howto/howto_js_toggle_dark_mode.asp*/
+
+/* CSS SCROLL: VER https://midu.dev/css-scroll-snap-la-solucion-definitiva-a-la-creacion-de-sliders-en-la-web-parte-ii/*/

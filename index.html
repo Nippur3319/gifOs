@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="es">
+	
+	<head>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+		<link rel="icon" type="image/ico" href="img/favicon.ico">
+		
+		<title>GifOs (maqueta nico)</title>
+		
+	</head>
+	
+	<body id="body" class="body diurno">
+		
+		<!-- HEADER & NAVBAR -->
+		
+		
+		<header class="header" id="header">
+			
+			<div class="cabecera">
+				
+				<div class="logo" id="logo">
+					<a href="index.html"><img src="./img/logo-mobile.svg" alt="logo"></a>
+				</div>
+				<div class="menu_hamburguesa" id="menu_hamburguesa">
+					<img src="./img/burger.svg" alt="menu">
+				</div>
+				
+			</div>
+			
+			
+			
+			<ul class="menu_desplegado invisible" id="menu_desplegado">
+				<li><a id="modo" href="#"><span id="nombreModo">Modo Nocturno</span></a></li>
+				<li><a href="favoritos.html">Favoritos</a></li>
+				<li><a href="gifos.html">Mis GIFOS</a></li>
+				<li><a href="nuevo.html"><div class="nuevo" id="nuevo"></div></a></li>
+			</ul>
+			
+			
+			
+		</header>
+		
+		<!-- SECCION PRINCIPAL -->
+		
+		<div class="contenido">
+			
+			<!-- TEXTO-->
+			
+			<div class="texto-principal">
+				
+				<h1>Inspírate, busca, guarda, y crea los mejores<span class="txt_gifos_verde"> GIFOS</span></h1>
+				
+			</div>
+			
+			<!-- CUADRO DE BUSQUEDA -->
+			
+			<img src="img/ilustra_header.svg" class="ilustracion" alt="Inspírate">    
+			
+			<div class="contenedor_busqueda" id="contenedor_busqueda">		
+				
+				<input type="search" class="input_busqueda" id="input_busqueda" placeholder="Busca GIFOS y más">
+
+				<div class="boton_lupa" id="boton_lupa"></div> 
+				
+				<div id="contenedor_sugerencias" class="contenedor_sugerencias"></div>
+				
+			</div>
+			
+			<span class="texto_busqueda" id="texto_busqueda"></span>
+			
+			
+			<!-- VISTA INDIVIDUAL AMPLIADA -->
+			
+			<div class="individual" id="individual">
+				
+				<div class="cerrar_individual" id="cerrar_individual"></div>
+				
+				<div class="boton_ampliar_izquierda" id="boton_ampliar_izquierda"></div>
+				<div class="imagen_ampliada" id="imagen_ampliada"></div>
+				<div class="boton_ampliar_derecha" id="boton_ampliar_derecha"></div>		
+				
+				<div class="usuario_individual" id="usuario_individual"></div>
+				<div class="titulo_individual" id="titulo_individual"></div>
+				<div class="descarga_individual" id="descarga_individual"></div>
+				<div class="corazon_individual" id="corazon_individual"></div>
+				
+			</div> 
+			
+			<!-- TRENDING -->
+			
+			<div class="trending">
+				
+				<p class="trending_txt">Trending:</p>
+				<p class="trending_txt_descripcion">Reactions, Entertainment, Sports, Stickers, Artists</p>
+				
+			</div>
+			
+			<!-- TRENDING GIFOS -->
+			
+			<div class="trending_gifos" id="trending_gifos">
+				
+				<p class="trending_gifos_txt">Trending GIFOS</p>
+				<p class="trending_gifos_p_txt">Mira los últimos GIFOS de nuestra comunidad.</p>
+				
+				<div class="contenedor_gifos">
+					
+					<div class="boton_slider_izquierda" id="boton_slider_izquierda"></div>
+					<div class="resultado_trending"></div>
+					<div class="boton_slider_derecha" id="boton_slider_derecha"></div>
+					
+				</div>					
+				
+				
+			</div>
+			
+			<!-- FOOTER -->
+			
+			<footer class="footer" id="footer">	
+				
+				<p class="compartir_txt">Compartir en:</p>
+				
+				<div class="redes_sociales">
+					
+					<div class="icono_facebook" id="icono_facebook"></div>
+					<div class="icono_twitter" id="icono_twitter"></div>
+					<div class="icono_instagram" id="icono_instagram"></div>
+					
+				</div>
+				
+				<p class="copyright">© GIFOS 2020 All Rights Reserved.</p>
+				
+			</footer>
+			
+			<div class="linea_color"></div>
+			
+		</div>
+		
+		<script src="js/index.js"></script>
+		<script src="js/busqueda.js"></script>
+		<script src="js/favoritos.js"></script>
+		<script src="js/trending.js"></script>
+		
+	</body>
+	
+</html>

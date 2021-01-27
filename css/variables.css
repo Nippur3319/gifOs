@@ -1,0 +1,17 @@
+html {
+    --cabecera-background-mobile:#FFFF;
+    --color-texto-diurno:#572EE5;
+    --border-busqueda-diurno: 1px solid #572EE5;
+    --color-texto-secundario-diurno: #000000;
+    --color-texto-menu-mobile: #ffffff;
+    
+}
+
+.modo_diurno {
+    
+
+}
+
+.modo_nocturno {
+
+}
