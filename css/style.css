@@ -97,9 +97,14 @@ body {
   max-height: 130px;
 }
 
-.contenedor_busqueda_y_lupa {
+.contenedor_busqueda_lupa_y_sugerencias{
   border: var(--border-busqueda-diurno);
   border-radius: 40px;
+  display:flex;
+  flex-direction: column;
+}
+
+.contenedor_busqueda_y_lupa {
   height: 50px;
   width: 334px;
   display: flex;
@@ -121,12 +126,16 @@ body {
     font-size: 16px;
     width: 215px;
     height: 22px;
+    color: var(--color-texto-secundario-diurno);
     
     
 }
 
 .input_busqueda:focus {
   outline: none;
+}
+.input_busqueda::placeholder {
+  color: var(--color-texto-gris);
 }
 
 .boton_lupa {
@@ -136,8 +145,10 @@ body {
     background: url(../img/icon-search.svg) no-repeat;
 }
 
-.contenedor_sugerencias {
-  display: none;
+#contenedor_sugerencias {
+  /* display: none; */
+  color: var(--color-texto-gris);
+  padding: 15px 0px 13px 55px;
   
 }
 

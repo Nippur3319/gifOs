@@ -1,4 +1,4 @@
-let apiKey = "SLANiqAne2Dq6vVtpS4j9ZOSnERNk2Ly"
+const apiKey = "SLANiqAne2Dq6vVtpS4j9ZOSnERNk2Ly"
 let trendingDinamicContainer = document.getElementById("trending-dinamic-container");
 
 let trendingTermsTxt = document.getElementById("trending_terms_txt");
@@ -10,7 +10,7 @@ const getTrendingTerms = async () => {
     let url = `https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`;
     const respTt = await fetch(url);
     const trendingTerms = await respTt.json();
-    console.log('los trending terms son: ' + trendingTerms.data[0]);
+    
     
     addToDomTrendingTerms(trendingTerms);
     
@@ -32,7 +32,7 @@ const getGiphyTrendings = async () => {
     let url = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=5&rating=g`;
     const resp = await fetch(url);
     const giphyTrendings = await resp.json();
-    console.log(giphyTrendings);
+    
     
     addToDom(giphyTrendings);
     
