@@ -144,12 +144,14 @@ body {
 } */
 
 .trending_gifos {
-  height: 476px;
+  height: 430;
   /*background: #f3f5f8;*/
   background: yellow;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  padding-top: 46px;
+  
 }
 
 .trending_gifos_p_txt {
@@ -159,41 +161,32 @@ body {
   font-size: 16px;
 }
 
-.trending-gifos-title {
-  display: none;
-}
-
-/* PARA EL CARRUSEL PASADO X CHAT */
-/* 
-#trending-result{
-  overflow-x: scroll;
-  display: flex;
-  scroll-snap-type: x mandatory;
-  overflow-y: hidden;
-}
-
-#trending-result img{
-  width: 350px;
-  height: 300px;
-  margin: 5px;
-  object-fit: cover;
-  scroll-snap-align: center;
-}
-
- */
-
 
 .trending-dinamic-container {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
- 
+  max-width: 375px;
+  overflow-x: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+  scroll-snap-type: x mandatory;
+  overflow-y: hidden;
+  padding-left: 5.9%;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .trending-gif-img {
- 
+  width: 243px;
+  height: 187px;
+  margin: 5px;
+  object-fit: cover;
+  scroll-snap-align: center;
 
 }
+
+.boton_slider_derecha, .boton_slider_izquierda {
+  display: none;
+}
+
 
 .footer {
     text-align: center;

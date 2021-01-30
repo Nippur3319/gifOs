@@ -1,10 +1,10 @@
 let apiKey = "SLANiqAne2Dq6vVtpS4j9ZOSnERNk2Ly"
-let trendingContainer = document.getElementById("trending-dinamic-container");
+let trendingDinamicContainer = document.getElementById("trending-dinamic-container");
 
 
 // Muestra por pantalla los GIF trending del momento con el endpoint de Giphy
 const getGiphyTrendings = async () => {
-    let url = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=4&rating=g`;
+    let url = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=15&rating=g`;
     const resp = await fetch(url);
     const giphyTrendings = await resp.json();
     console.log(giphyTrendings);
@@ -22,8 +22,8 @@ function addToDom (giphyResults) {
         let gif = document.createElement("img");
         gif.className = "trending-gif-img"
         gif.src = giphyResults.data[i].images.fixed_width.url
-        trendingContainer.appendChild(gif);
-        ;
+        trendingDinamicContainer.appendChild(gif);
+    
     }
 
 }
