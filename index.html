@@ -55,25 +55,29 @@
 				<h1>Inspírate, busca, guarda, y crea los mejores<span class="txt_gifos_verde"> GIFOS</span></h1>
 				
 			</div>
-			
-			<!-- CUADRO DE BUSQUEDA RECORDA QUE LA TARJETA DEL RESULTADO DE  BUSQUEDA CON LOS BOTONES YA LA TENES HECHA DEL CARRITO DE COMPRAS-->
-
-
-			
-			
 			<img src="img/ilustra_header.svg" class="ilustracion" alt="Inspírate">    
 			
-			<div class="contenedor_busqueda" id="contenedor_busqueda">		
-				
-				<input type="search" class="input_busqueda" id="input_busqueda" placeholder="Busca GIFOS y más">
+			<!-- CUADRO DE BUSQUEDA -- RECORDA QUE LA TARJETA DEL RESULTADO DE  BUSQUEDA CON LOS BOTONES YA LA TENES HECHA DEL CARRITO DE COMPRAS
+			
+			ver la autocomplete api aphi.giphy.com/v1/gifs/search/tags
 
-				<div class="boton_lupa" id="boton_lupa"></div> 
-				
-				<div id="contenedor_sugerencias" class="contenedor_sugerencias"></div>
-				
+			-->
+
+			
+
+			<div class="contenedor_busqueda_lupa_y_sugerencias">
+				<div class="contenedor_busqueda_y_lupa" id="contenedor_busqueda_y_lupa">
+					
+					<div class="contenedor_busqueda">
+						<input type="text" class="input_busqueda" id="input_busqueda" placeholder="Busca GIFOS y más">					
+					</div>
+					<div class="boton_lupa" id="boton_lupa"></div> 
+					
+					<div id="contenedor_sugerencias" class="contenedor_sugerencias"></div>
+			 	</div>
 			</div>
 			
-			<span class="texto_busqueda" id="texto_busqueda"></span>
+			
 			
 			
 			<!-- VISTA INDIVIDUAL AMPLIADA -->
@@ -96,12 +100,9 @@
 			
 			
 			<!-- TRENDING -->
-			
-			
-				
-				<div class="trending_terms_title">Trending:</div>
 
-				<div class="trending_terms_txt" id="trending_terms_txt"></div>
+				<div class="trending_terms_title">Trending:</div>
+				<div class="trending_terms_txt" id="trending_terms_txt">- </div>
 				
 			
 
