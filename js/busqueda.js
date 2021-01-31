@@ -9,17 +9,24 @@ let terminoBuscado = document.getElementById("input_busqueda");
 
 // Muestra las sugerencias
 const getSugerencias = async () => {
-    let url = `https://api.giphy.com/v1/tags/related/${terminoBuscado.value}?api_key=${apiKey}`;
 
-    const respSugerencias = await fetch(url);
-    const sugerencias = await respSugerencias.json();
+    if (terminoBuscado.value.length >= 3) {
 
+        let url = `https://api.giphy.com/v1/tags/related/${terminoBuscado.value}?api_key=${apiKey}`;
+     
+        const respSugerencias = await fetch(url);
+        const sugerencias = await respSugerencias.json();
+     
+        contenedorSugerencias.style.display= "block"
+        addToDomSugerencias(sugerencias);
+    } 
 
-    console.log('el arreglo de sugerencias empieza con ' + sugerencias.data[0].name); //para ver si anda ok
-    
-    addToDomSugerencias(sugerencias);
-    
+ 
 };
+
+
+    
+
 
 
 function addToDomSugerencias(sugerencias) {

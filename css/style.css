@@ -146,7 +146,7 @@ body {
 }
 
 #contenedor_sugerencias {
-  /* display: none; */
+  display: none; 
   color: var(--color-texto-gris);
   padding: 15px 0px 13px 55px;
   

@@ -69,7 +69,8 @@
 				<div class="contenedor_busqueda_y_lupa" >
 					
 					<div class="contenedor_busqueda">
-						<input type="text" class="input_busqueda" id="input_busqueda" placeholder="Busca GIFOS y más">					
+						<!-- este input ejecuta la función de sugerencias -->
+						<input type="text" class="input_busqueda" id="input_busqueda" placeholder="Busca GIFOS y más" onkeypress="getSugerencias(terminoBuscado)">					
 					</div>
 					<div class="boton_lupa" id="boton_lupa">
 
