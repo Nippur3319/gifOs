@@ -1,9 +1,10 @@
 //const apiKey = "SLANiqAne2Dq6vVtpS4j9ZOSnERNk2Ly"
 let contenedorSugerencias = document.getElementById("contenedor_sugerencias");
 let terminoBuscado = document.getElementById("input_busqueda");
-let botonLupa = document.getElementById("boton_lupa")
-let lupaClickeada = false
-
+let botonLupa = document.getElementById("boton_lupa");
+let lupaClickeada = false;
+let h2TerminoBuscado = document.getElementById("h2_termino_buscado");
+let gifsEncontrados = document.getElementById("gifs_encontrados");
 // falta programar que cuando se presione enter se ejecute el renderizado de los gif encontrados
 
 function cerrarSugerencias() {
@@ -67,6 +68,26 @@ async function ejecutarBusqueda(termino) {
     const resBusqueda = await fetch(url);
     const resultadoBusqueda = await resBusqueda.json();
 
-    console.log(resultadoBusqueda); // para probarlo
+    h2TerminoBuscado.innerHTML = `${termino}`
+    
+    addToDomResultadoBusqueda(resultadoBusqueda);
+    
+}
 
+// con el array completa dinamicamente el DOM
+function addToDomResultadoBusqueda(resultadoBusqueda) {
+    //traigo los primeros 12 resultados
+    for (let i = 0; i <= 12; i++) {
+        
+
+        let gifResultadoImg = document.createElement("img");
+        gifResultadoImg.className = "gif-resultado-img"
+        gifResultadoImg.src = resultadoBusqueda.data[i].images.fixed_width.url;
+
+
+
+
+        gifsEncontrados.appendChild(gifResultadoImg)
+        
+    }
 }

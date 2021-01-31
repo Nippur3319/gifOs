@@ -169,7 +169,7 @@ body {
   color: var(--color-texto-diurno)
 }
 
-/* TRENDING */
+/* TRENDING TOPICS */
 
 
 .trending_terms_title, .trending_terms_txt {
@@ -193,6 +193,22 @@ body {
   margin-bottom: 45px;
 }
 
+/* RESULTADOS DE LA BÚSQUEDA */
+
+#termino_buscado {
+  width: 375px;
+  height: 40px;
+  color: var(--color-texto-diurno);
+  text-align: center;
+  padding: 0px 15px 0px 15px;
+}
+
+#gifs_encontrados {
+/*   display: grid;
+  grid-template-columns: 1fr 1fr; */
+}
+
+/* TRENDING GIFOS */
 .trending_gifos {
   height: 300px;
   background: #f3f5f8;
