@@ -5,22 +5,16 @@ let botonLupa = document.getElementById("boton_lupa");
 let lupaClickeada = false;
 let h2TerminoBuscado = document.getElementById("h2_termino_buscado");
 let gifsEncontrados = document.getElementById("gifs_encontrados");
-// falta programar que cuando se presione enter se ejecute el renderizado de los gif encontrados
-
-function cerrarSugerencias() {
-    if (lupaClickeada) {
-        terminoBuscado.value = ""
-        contenedorSugerencias.style.display= "none"
-    }
-}
+let btnVerMas = document.getElementById("btn_ver_mas");
+let offset = 0;
 
 
 
 
 // Muestra las sugerencias, se ejecuta al producirse el onkeypress en HTML
 const getSugerencias = async () => {
-    // para que se dispare el fetch tiene que ser mayor o igual a 3 caracteres
-    if (terminoBuscado.value.length >= 3) {
+    // para que se dispare el fetch tiene que ser mayor o igual a 2 caracteres
+    if (terminoBuscado.value.length >= 2) {
         let url = `https://api.giphy.com/v1/tags/related/${terminoBuscado.value}?api_key=${apiKey}`;
         const respSugerencias = await fetch(url);
         const sugerencias = await respSugerencias.json();
@@ -28,9 +22,29 @@ const getSugerencias = async () => {
         contenedorSugerencias.style.display= "block"
         addToDomSugerencias(sugerencias);
     } 
+    
 };
 
 
+// Chequeo que se haya presionado enter en input_busqueda y en caso afirmativo disparo la busqueda directamente
+function chkEnter(event) {
+    var x = event.key;
+    if (x === "Enter") {
+        
+        if (input_busqueda.value === "") {
+            alert('ingrese un término de búsqueda') // resupuesta provisoria
+        } else {
+            cerrarSugerencias();
+            cerrarBusquedaAnterior();
+            ejecutarBusqueda(input_busqueda.value);
+
+
+                /// recordar volver el offset a cero al ejecutar una nueva búsqueda
+
+        }
+        
+    };
+}
 
 
 
@@ -45,14 +59,14 @@ function addToDomSugerencias(sugerencias) {
         //rellena dinamicamente las sugerencias
         contenedorSugerencias.innerHTML += `
         <div>
-            <div class="lupa-sugerencia">
-                <img src="../img/icon-search.svg" style="height:15.8px;opacity:70%">
-            </div>
-            <div class="txt-sugerencia" 
-            id="txt-sugerencia${i}"
-            onclick="ejecutarBusqueda('${sugerencia}')">
-                ${sugerencia}
-            </div>
+        <div class="lupa-sugerencia">
+        <img src="../img/icon-search.svg" style="height:15.8px;opacity:70%">
+        </div>
+        <div class="txt-sugerencia" 
+        id="txt-sugerencia${i}"
+        onclick="ejecutarBusqueda('${sugerencia}')">
+        ${sugerencia}
+        </div>
         </div>`;
         
     };
@@ -61,14 +75,24 @@ function addToDomSugerencias(sugerencias) {
 
 async function ejecutarBusqueda(termino) {
     // ya funciona bien trae el array falta llenar el dom
-    terminoBuscado.value = termino;
-    cerrarSugerencias();
-    let url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q='${termino}'&limit=&offset=0&rating=g&lang=es`
     
+    console.log("término: " + termino);
+    
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${termino}&limit=12&offset=${offset}&rating=g&lang=es`
+    
+    console.log("url: " + url);
+
+
     const resBusqueda = await fetch(url);
     const resultadoBusqueda = await resBusqueda.json();
-
+    
+    if (resultadoBusqueda.data.length === 0 ) {
+        alert("su búsqueda no trajo resultados")
+    }
+    
     h2TerminoBuscado.innerHTML = `${termino}`
+    
+    console.log(resultadoBusqueda); // para control
     
     addToDomResultadoBusqueda(resultadoBusqueda);
     
@@ -76,18 +100,75 @@ async function ejecutarBusqueda(termino) {
 
 // con el array completa dinamicamente el DOM
 function addToDomResultadoBusqueda(resultadoBusqueda) {
+        btnVerMas.style.display = "flex";
+    
+    
     //traigo los primeros 12 resultados
-    for (let i = 0; i <= 12; i++) {
+    for (let i = 0; i < 12; i++) {
         
-
+/*         let cardDiv = document.createElement("div");
+        cardDiv.className = "card-div"
+        gifsEncontrados.appendChild(cardDiv);
+        
         let gifResultadoImg = document.createElement("img");
         gifResultadoImg.className = "gif-resultado-img"
         gifResultadoImg.src = resultadoBusqueda.data[i].images.fixed_width.url;
+        gifsEncontrados.appendChild(gifResultadoImg) */
+        
+        let cardDiv = document.createElement("div");
+        gifsEncontrados.appendChild(cardDiv)
+        cardDiv.innerHTML = `
+        
+        <div class="div-imagen">
+            <div class="card-layer">
+                <div class="card-icons">
+                    <div class="card-icon">
+                        <img id="icon-fav" src="./img/icon-fav.svg" alt="fav">
+                    </div>
+                    <div class="card-icon">
+                        <img id="icon-download" src="./img/icon-download.svg" alt="fav">
+                    </div>
+                    <div class="card-icon">
+                        <img id="icon-max" src="./img/icon-max-normal.svg" alt="fav">
+                    </div>
+                    
+                </div>
+                <div class="card-titles">
+                    <p id="gif-user">${resultadoBusqueda.data[i].user.username}</p>
+                    <p id="gif-title">${resultadoBusqueda.data[i].title}</p>
+                </div>
+                
+            </div>
+            <img class="gif-desvanecer" src="${resultadoBusqueda.data[i].images.fixed_width.url}" />
+        </div>    
+            
+                
+        
+        
+        `
 
-
-
-
-        gifsEncontrados.appendChild(gifResultadoImg)
         
     }
+    
 }
+
+
+function cerrarSugerencias() {
+    if (lupaClickeada) {
+        //terminoBuscado.value = ""
+        contenedorSugerencias.style.display= "none"
+        botonLupa.style.background = "url(../img/icon-search.svg) no-repeat"
+    }
+}
+
+function cerrarBusquedaAnterior() {
+    gifsEncontrados.innerHTML = "";
+}
+
+
+btnVerMas.addEventListener('click', (e)=>{
+    
+    offset++;
+    // lo mejor sería enviar el parametro a ejecutarbusqueda
+    ejecutarBusqueda(terminoBuscado.value)
+})

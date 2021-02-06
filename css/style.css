@@ -195,6 +195,12 @@ body {
 
 /* RESULTADOS DE LA BÚSQUEDA */
 
+.contenedor_resultados_busqueda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #termino_buscado {
   width: 375px;
   height: 40px;
@@ -204,8 +210,137 @@ body {
 }
 
 #gifs_encontrados {
-/*   display: grid;
-  grid-template-columns: 1fr 1fr; */
+   display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px;
+  
+}
+
+/* .card-layer:hover {
+  color: black;
+  z-index: -1;
+  opacity: 20%;
+}
+
+
+.gif-resultado-img {
+  width: 156px;
+  height: 120px;
+  justify-self: center; */
+
+
+  .div-imagen {
+  display:inline-block;
+  position:relative;
+  width: 156px;
+  height: 120px;
+}
+
+.div-imagen > div {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+  width: 156px;
+  height: 120px;
+  background: var(--color-texto-diurno);
+  
+}
+
+.gif-desvanecer {
+  width: 156px;
+  height: 120px;
+}
+
+.gif-desvanecer:hover {
+  opacity: 0.5;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  -ms-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+.card-layer {
+  
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    
+    align-items: flex-start;
+  
+  }
+
+.card-icons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: stretch;
+  align-items: flex-start;
+  }
+
+  .card-icon {
+    margin: 2px;
+    height: 32px;
+    width: 32px;
+    object-fit:contain;
+  }
+
+  #icon-fav:hover {
+
+   
+  }
+
+  #icon-download:hover {
+
+  }
+
+  #icon-max:hover {
+
+  }
+  
+
+  .card-titles {
+    height: 40px;
+    border: 1px solid blue;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-content: stretch;
+    align-items: flex-start;
+    padding: 4.6%;
+
+  }
+
+  #gif-user {
+    font-size: 15px;
+    
+  }
+
+  #gif-title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+#btn_ver_mas {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 127px;
+  height: 50px;
+  border: var(--border-busqueda-diurno);
+  color: var(--color-texto-diurno);
+  font-weight: bolder;
+  border-radius: 40px;
+  font-size: 13px;
+  margin: 50px 0px 50px 0px;
 }
 
 /* TRENDING GIFOS */
