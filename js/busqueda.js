@@ -114,60 +114,42 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
     //traigo los primeros 12 resultados
     for (let i = 0; i < resultadoBusqueda.data.length; i++) {
         
-        /*         let cardDiv = document.createElement("div");
-        cardDiv.className = "card-div"
-        gifsEncontrados.appendChild(cardDiv);
-        
-        let gifResultadoImg = document.createElement("img");
-        gifResultadoImg.className = "gif-resultado-img"
-        gifResultadoImg.src = resultadoBusqueda.data[i].images.fixed_width.url;
-        gifsEncontrados.appendChild(gifResultadoImg) */
+
         
         let cardDiv = document.createElement("div");
         gifsEncontrados.appendChild(cardDiv)
-        
-
-
-
-
-
-    // ojo que esto funcionaba bien con la card y etc y fue un quilombo armarlo        
+    
        cardDiv.innerHTML = `
         
        <div class="div-imagen">
-       <div class="card-layer">
-           <div class="card-icons">
-               <div class="card-icon">
-                   <img id="icon-fav" src="./img/icon-fav.svg" alt="fav">
-               </div>
-               <div class="card-icon">
-                   <img id="icon-download" src="./img/icon-download.svg" alt="fav">
-               </div>
-               <div class="card-icon">
-                   <img id="icon-max" src="./img/icon-max-normal.svg" alt="fav">
-               </div>
-               
-           </div>
-           <div class="card-titles">
-               <p id="gif-user">${resultadoBusqueda.data[i].user.username}</p>
-               <p id="gif-title">${resultadoBusqueda.data[i].title}</p>
-           </div>
-           
-       </div>
-       <img class="gif-desvanecer" src="${resultadoBusqueda.data[i].images.fixed_width.url}" />
-   </div>    
-
-        ` 
-
-        
-    }
-    
+        <div class="card-layer">
+            <div class="card-icons">
+                <div class="card-icon">
+                    <img id="icon-fav" src="./img/icon-fav.svg" alt="fav">
+                </div>
+                <div class="card-icon">
+                    <img id="icon-download" src="./img/icon-download.svg" alt="fav">
+                </div>
+                <div class="card-icon">
+                    <img id="icon-max" src="./img/icon-max-normal.svg" alt="fav">
+                </div>
+                
+            </div>
+            <div class="card-titles">
+                <p id="gif-user"> User: ${resultadoBusqueda.data[i].username}</p>
+                <p id="gif-title">Title: ${resultadoBusqueda.data[i].title}</p>
+            </div>
+            
+            </div>
+             <img class="gif-desvanecer" src="${resultadoBusqueda.data[i].images.fixed_width.url}" />
+        </div>    
+        `
+    }    
 }
 
 
 function cerrarSugerencias() {
-    contenedorSugerencias.style.display= "none"
-    
+    contenedorSugerencias.style.display= "none"    
     if (lupaClickeada) {
         botonLupa.style.background = "url(../img/icon-search.svg) no-repeat"
     }
@@ -179,9 +161,7 @@ function cerrarBusquedaAnterior() {
 
 
 btnVerMas.addEventListener('click', (e)=>{
-    
     offset++;
-    // lo mejor sería enviar el parametro a ejecutarbusqueda
-    ejecutarBusqueda(terminoBuscado.value)
+    ejecutarBusqueda(input_busqueda.value)
 })
 
