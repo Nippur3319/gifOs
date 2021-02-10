@@ -8,9 +8,9 @@ let h2TerminoBuscado = document.getElementById("h2_termino_buscado");
 let gifsEncontrados = document.getElementById("gifs_encontrados");
 let btnVerMas = document.getElementById("btn_ver_mas");
 let offset = 0;
-let iconCards = document.getElementsByClassName("card-icon")
-
-
+let iconCards = document.getElementsByClassName("card-icon");
+let btnMaximizar = document.getElementsByClassName("icon-max");
+let gifMaxItself = document.getElementById("gif-max-itself");
 
 
 // Muestra las sugerencias
@@ -125,13 +125,13 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
         <div class="card-layer">
             <div class="card-icons">
                 <div class="card-icon">
-                    <div id="icon-fav" alt="fav"></div>
+                    <div class="icon-fav" alt="fav"></div>
                 </div>
                 <div class="card-icon">
-                    <div id="icon-download" alt="download"></div>
+                    <div class="icon-download" alt="download"></div>
                 </div>
                 <div class="card-icon">
-                    <div id="icon-max" alt="max"></div>
+                    <div class="icon-max" alt="max" onclick="maximizarGif('${resultadoBusqueda.data[i].images.original.url}')" ></div>
                 </div>
                 
             </div>
@@ -165,3 +165,18 @@ btnVerMas.addEventListener('click', (e)=>{
     ejecutarBusqueda(input_busqueda.value)
 })
 
+
+
+
+/* RENDERIZAR EL MAXIMIZADO */
+
+
+
+function maximizarGif(gif) {
+    divMaximizado.style.display="block";
+    const gifMax = document.createElement('img');
+    
+    
+    gifMaxItself.src = `${gif}`
+
+}

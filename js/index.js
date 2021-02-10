@@ -8,7 +8,8 @@ let srcImgHamburguesa = imgHamburguesa.getAttribute('src');
 
 const menuDesplegado = document.getElementById('menu_desplegado');
 
-
+const divMaximizado = document.getElementById('div-maximized');
+const gifMaximizado = document.getElementById('gif-maximized');
 
 /* MENU HAMBURGUESA
 /* al presionar sobre el menu se invoca a una callback que toglea la clase invisible que oculta el elemento */

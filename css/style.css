@@ -279,34 +279,34 @@ body {
 
   }
 
-  #icon-fav {
+  .icon-fav {
     background: url("../img/icon-fav.svg") no-repeat;
     height: 32px;
     width: 32px;    
   }
   
-  #icon-fav:hover {
+  .icon-fav:hover {
     background: url("../img/icon-fav-hover.svg") no-repeat;
   }
 
-  #icon-download {
+  .icon-download {
     background: url("../img/icon-download.svg") no-repeat;
     height: 32px;
     width: 32px;
   }
 
-  #icon-download:hover {
+  .icon-download:hover {
     background: url("../img/icon-download-hover.svg") no-repeat;
 
   }
 
-  #icon-max {
+  .icon-max {
     background: url("../img/icon-max-normal.svg") no-repeat;
     height: 32px;
     width: 32px;
   }
 
-  #icon-max:hover {
+  .icon-max:hover {
     background: url("../img/icon-max-hover.svg") no-repeat;
   }
   
@@ -422,8 +422,8 @@ body {
 /* MAXIMIZED */
 
 #div-maximized {
-  display:block;
-  /*display: none;*/
+  
+  display: none;
   position: fixed;
   z-index: 2;
   left: 0;
@@ -446,11 +446,39 @@ body {
 }
 
 #gif-maximized {
-  border: 1px solid olive;
+  
   width: 318px;
   height: 245px;
-  margin: 156px 28px 183px 29px;
+  margin: 156px 28px 14px 29px;
 }
+
+#max-titles-icons{
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  
+  
+  width: 318px;
+  height: 40px;
+  margin: 14px 28px 183px 29px;
+}
+
+#max-titles {
+  width: 250px;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+#max-gif-user {
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+}
+
+#max-gif-title {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
 
 /* FOOTER */
 
