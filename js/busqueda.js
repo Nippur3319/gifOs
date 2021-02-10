@@ -1,21 +1,24 @@
 //const apiKey = "SLANiqAne2Dq6vVtpS4j9ZOSnERNk2Ly"
 let contenedorSugerencias = document.getElementById("contenedor_sugerencias");
-let terminoBuscado = document.getElementById("input_busqueda");
+let divTerminoBuscado = document.getElementById("input_busqueda");
+
 let botonLupa = document.getElementById("boton_lupa");
 let lupaClickeada = false;
 let h2TerminoBuscado = document.getElementById("h2_termino_buscado");
 let gifsEncontrados = document.getElementById("gifs_encontrados");
 let btnVerMas = document.getElementById("btn_ver_mas");
 let offset = 0;
+let iconCards = document.getElementsByClassName("card-icon")
 
 
 
 
 // Muestra las sugerencias, se ejecuta al producirse el onkeypress en HTML
-const getSugerencias = async () => {
+const getSugerencias = async (terminoBuscado) => {
+    
     // para que se dispare el fetch tiene que ser mayor o igual a 2 caracteres
-    if (terminoBuscado.value.length >= 2) {
-        let url = `https://api.giphy.com/v1/tags/related/${terminoBuscado.value}?api_key=${apiKey}`;
+    if (terminoBuscado.length >= 2) {
+        let url = `https://api.giphy.com/v1/tags/related/${terminoBuscado}?api_key=${apiKey}`;
         const respSugerencias = await fetch(url);
         const sugerencias = await respSugerencias.json();
         // muestro el contenedor de sugerencias que estaba en display none
@@ -34,9 +37,8 @@ function chkEnter(event) {
         if (input_busqueda.value === "") {
             alert('ingrese un término de búsqueda') // resupuesta provisoria
         } else {
-            cerrarSugerencias();
-            cerrarBusquedaAnterior();
             ejecutarBusqueda(input_busqueda.value);
+            
 
 
                 /// recordar volver el offset a cero al ejecutar una nueva búsqueda
@@ -72,11 +74,10 @@ function addToDomSugerencias(sugerencias) {
     };
 };
 
-
 async function ejecutarBusqueda(termino) {
     // ya funciona bien trae el array falta llenar el dom
     
-    console.log("término: " + termino);
+    console.log("término: " + termino); // para control
     
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${termino}&limit=12&offset=${offset}&rating=g&lang=es`
     
@@ -92,19 +93,24 @@ async function ejecutarBusqueda(termino) {
     
     h2TerminoBuscado.innerHTML = `${termino}`
     
+    console.log("el resultado es :" + resultadoBusqueda); // para control
     console.log(resultadoBusqueda); // para control
+
+    //terminoBuscado.value = ""
+    cerrarSugerencias()
     
+    cerrarBusquedaAnterior();
     addToDomResultadoBusqueda(resultadoBusqueda);
-    
 }
+
 
 // con el array completa dinamicamente el DOM
 function addToDomResultadoBusqueda(resultadoBusqueda) {
         btnVerMas.style.display = "flex";
-    
+        
     
     //traigo los primeros 12 resultados
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < resultadoBusqueda.data.length; i++) {
         
 /*         let cardDiv = document.createElement("div");
         cardDiv.className = "card-div"
@@ -117,7 +123,14 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
         
         let cardDiv = document.createElement("div");
         gifsEncontrados.appendChild(cardDiv)
-        cardDiv.innerHTML = `
+        cardDiv.innerHTML =" indice = "+ i // para probar
+
+
+
+
+
+// ojo que esto funcionaba bien con la card y etc y fue un quilombo armarlo        
+       /*  cardDiv.innerHTML = `
         
         <div class="div-imagen">
             <div class="card-layer">
@@ -145,7 +158,7 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
                 
         
         
-        `
+        ` */
 
         
     }
@@ -154,9 +167,9 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
 
 
 function cerrarSugerencias() {
+    contenedorSugerencias.style.display= "none"
+    //terminoBuscado.value = ""
     if (lupaClickeada) {
-        //terminoBuscado.value = ""
-        contenedorSugerencias.style.display= "none"
         botonLupa.style.background = "url(../img/icon-search.svg) no-repeat"
     }
 }
@@ -172,3 +185,4 @@ btnVerMas.addEventListener('click', (e)=>{
     // lo mejor sería enviar el parametro a ejecutarbusqueda
     ejecutarBusqueda(terminoBuscado.value)
 })
+
