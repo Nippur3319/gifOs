@@ -13,7 +13,7 @@ let iconCards = document.getElementsByClassName("card-icon")
 
 
 
-// Muestra las sugerencias, se ejecuta al producirse el onkeypress en HTML
+// Muestra las sugerencias
 const getSugerencias = async (terminoBuscado) => {
     
     // para que se dispare el fetch tiene que ser mayor o igual a 2 caracteres
@@ -45,6 +45,8 @@ function chkEnter(event) {
 
         }
         
+    } else {
+        getSugerencias(input_busqueda.value);
     };
 }
 
@@ -96,7 +98,7 @@ async function ejecutarBusqueda(termino) {
     console.log("el resultado es :" + resultadoBusqueda); // para control
     console.log(resultadoBusqueda); // para control
 
-    //terminoBuscado.value = ""
+    
     cerrarSugerencias()
     
     cerrarBusquedaAnterior();
@@ -168,7 +170,7 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
 
 function cerrarSugerencias() {
     contenedorSugerencias.style.display= "none"
-    //terminoBuscado.value = ""
+    
     if (lupaClickeada) {
         botonLupa.style.background = "url(../img/icon-search.svg) no-repeat"
     }
