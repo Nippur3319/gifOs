@@ -166,7 +166,8 @@ body {
 }
 
 .txt-sugerencia:hover {
-  color: var(--color-texto-diurno)
+  color: var(--color-texto-diurno);
+  cursor: pointer;
 }
 
 /* TRENDING TOPICS */
@@ -240,7 +241,7 @@ body {
   position:absolute;
   top:0;
   left:0;
-  z-index:-1;
+  /*z-index:-1;*/
   width: 156px;
   height: 120px;
   background: var(--color-texto-diurno);
@@ -248,12 +249,16 @@ body {
 }
 
 .gif-desvanecer {
+  z-index: -1;
   width: 156px;
   height: 120px;
+  position: absolute;
 }
 
-.gif-desvanecer:hover {
-  opacity: 0.5;
+
+
+.card-layer:hover {
+  opacity: 0.7;
   -webkit-transition: opacity 500ms;
   -moz-transition: opacity 500ms;
   -o-transition: opacity 500ms;
@@ -262,15 +267,13 @@ body {
 }
 
 .card-layer {
-  
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    
-    align-items: flex-start;
-  
-  }
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
 .card-icons {
   width: 100%;
@@ -280,32 +283,49 @@ body {
   justify-content: flex-end;
   align-content: stretch;
   align-items: flex-start;
+  
   }
 
   .card-icon {
     margin: 2px;
-    height: 32px;
-    width: 32px;
-    object-fit:contain;
+
   }
 
+  #icon-fav {
+    background: url("../img/icon-fav.svg") no-repeat;
+    height: 32px;
+    width: 32px;    
+  }
+  
   #icon-fav:hover {
+    background: url("../img/icon-fav-hover.svg") no-repeat;
+  }
 
-   
+  #icon-download {
+    background: url("../img/icon-download.svg") no-repeat;
+    height: 32px;
+    width: 32px;
   }
 
   #icon-download:hover {
+    background: url("../img/icon-download-hover.svg") no-repeat;
 
   }
 
-  #icon-max:hover {
+  #icon-max {
+    background: url("../img/icon-max-normal.svg") no-repeat;
+    height: 32px;
+    width: 32px;
+  }
 
+  #icon-max:hover {
+    background: url("../img/icon-max-hover.svg") no-repeat;
   }
   
 
   .card-titles {
     height: 40px;
-    border: 1px solid blue;
+    
     color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -341,6 +361,12 @@ body {
   border-radius: 40px;
   font-size: 13px;
   margin: 50px 0px 50px 0px;
+}
+
+#btn_ver_mas:hover {
+  background-color:var(--color-texto-verde);
+  transition: opacity 500ms;
+  cursor: pointer;
 }
 
 /* TRENDING GIFOS */

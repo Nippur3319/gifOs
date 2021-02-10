@@ -125,13 +125,13 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
         <div class="card-layer">
             <div class="card-icons">
                 <div class="card-icon">
-                    <img id="icon-fav" src="./img/icon-fav.svg" alt="fav">
+                    <div id="icon-fav" alt="fav"></div>
                 </div>
                 <div class="card-icon">
-                    <img id="icon-download" src="./img/icon-download.svg" alt="fav">
+                    <div id="icon-download" alt="download"></div>
                 </div>
                 <div class="card-icon">
-                    <img id="icon-max" src="./img/icon-max-normal.svg" alt="fav">
+                    <div id="icon-max" alt="max"></div>
                 </div>
                 
             </div>
