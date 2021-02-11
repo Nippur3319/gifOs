@@ -128,10 +128,11 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
             <div class="card-icons">
                 <div class="card-icon">
                     <div 
-                        class="icon-fav"
+                        class="icon-fav desactivado"
+                        id="icon-fav-${i}"
                         alt="fav"
 
-                        onclick="agregarFavoritos('${resultadoBusqueda.data[i].id},${resultadoBusqueda.data[i].username},${resultadoBusqueda.data[i].title},${resultadoBusqueda.data[i].images.original.url}')"
+                        onclick="agregarFavoritos('${i}','${resultadoBusqueda.data[i].id}','${resultadoBusqueda.data[i].username}','${resultadoBusqueda.data[i].title}','${resultadoBusqueda.data[i].images.original.url}')"
 
                         
 
