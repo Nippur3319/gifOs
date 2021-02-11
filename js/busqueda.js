@@ -1,4 +1,4 @@
-//const apiKey = "SLANiqAne2Dq6vVtpS4j9ZOSnERNk2Ly"
+// DECLARACIONES
 let contenedorSugerencias = document.getElementById("contenedor_sugerencias");
 let divTerminoBuscado = document.getElementById("input_busqueda");
 
@@ -11,7 +11,9 @@ let offset = 0;
 let iconCards = document.getElementsByClassName("card-icon");
 let btnMaximizar = document.getElementsByClassName("icon-max");
 let gifMaxItself = document.getElementById("gif-max-itself");
-
+let maxGifUser = document.getElementById("max-gif-user");
+let maxGifTitle = document.getElementById("max-gif-title");
+let maxCloseBtn = document.getElementById("cerrar-maximized")
 
 // Muestra las sugerencias
 const getSugerencias = async (terminoBuscado) => {
@@ -131,13 +133,13 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
                     <div class="icon-download" alt="download"></div>
                 </div>
                 <div class="card-icon">
-                    <div class="icon-max" alt="max" onclick="maximizarGif('${resultadoBusqueda.data[i].images.original.url}')" ></div>
+                    <div class="icon-max" alt="max" onclick="maximizarGif('${resultadoBusqueda.data[i].images.original.url}','${resultadoBusqueda.data[i].username}','${resultadoBusqueda.data[i].title}')" ></div>
                 </div>
                 
             </div>
             <div class="card-titles">
-                <p id="gif-user"> User: ${resultadoBusqueda.data[i].username}</p>
-                <p id="gif-title">Title: ${resultadoBusqueda.data[i].title}</p>
+                <p id="gif-user"> ${resultadoBusqueda.data[i].username}</p>
+                <p id="gif-title"> ${resultadoBusqueda.data[i].title}</p>
             </div>
             
             </div>
@@ -172,11 +174,18 @@ btnVerMas.addEventListener('click', (e)=>{
 
 
 
-function maximizarGif(gif) {
-    divMaximizado.style.display="block";
+function maximizarGif(gif,usr,title) {
+    divMaximizado.classList.toggle('invisible');
     const gifMax = document.createElement('img');
     
     
     gifMaxItself.src = `${gif}`
 
+    maxGifUser.innerHTML = `${usr}`;
+    maxGifTitle.innerHTML = `${title}`;
+
 }
+/* al presionar sobre la X se invoca a una callback que toglea la clase invisible que oculta el elemento */
+maxCloseBtn.addEventListener('click', () => {
+    divMaximizado.classList.toggle('invisible');
+})
