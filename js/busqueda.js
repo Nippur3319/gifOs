@@ -127,7 +127,16 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
         <div class="card-layer">
             <div class="card-icons">
                 <div class="card-icon">
-                    <div class="icon-fav" alt="fav"></div>
+                    <div 
+                        class="icon-fav"
+                        alt="fav"
+
+                        onclick="agregarFavoritos('${resultadoBusqueda.data[i].id},${resultadoBusqueda.data[i].username},${resultadoBusqueda.data[i].title},${resultadoBusqueda.data[i].images.original.url}')"
+
+                        
+
+
+                    ></div>
                 </div>
                 <div class="card-icon">
                     <div class="icon-download" alt="download"></div>
