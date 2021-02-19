@@ -279,7 +279,7 @@ body {
 
   }
 
-  .icon-fav {
+  .icon-fav-desactivado {
     background: url("../img/icon-fav.svg") no-repeat;
     height: 32px;
     width: 32px;    

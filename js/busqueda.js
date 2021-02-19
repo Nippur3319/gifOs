@@ -128,7 +128,7 @@ function addToDomResultadoBusqueda(resultadoBusqueda) {
             <div class="card-icons">
                 <div class="card-icon">
                     <div 
-                        class="icon-fav desactivado"
+                        class="icon-fav-desactivado"
                         id="icon-fav-${i}"
                         alt="fav"
 
